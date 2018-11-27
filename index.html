@@ -40,9 +40,27 @@
 	<div class="stage">
 		<div class="todos"></div>
 		<div class="hint">
-			<div class="text">我们开始于 2015 年 11 月 23 日</div>
-			<div class="text">这是我们共同度过的第 1101 天<span class="emoji">♥</span></div>
+			<div class="text">我们开始于 2018 年 7 月 27 日</div>
+			<div class="text">这是我们共同度过的第<span id="time"></span><span class="emoji">♥</span></div>
 		</div>
+		<!-- 计算天数 -->
+		<script type="text/javascript">
+		span_dt_dt = document.getElementById('time')
+		function show_date_time() {
+				window.setTimeout("show_date_time()", 1000);
+				BirthDay = new Date("7/27/2018 00:00:00");//时间
+				today = new Date();
+				timeold = (today.getTime() - BirthDay.getTime());
+				sectimeold = timeold / 1000
+				secondsold = Math.floor(sectimeold);
+				msPerDay = 24 * 60 * 60 * 1000
+				e_daysold = timeold / msPerDay
+				daysold = Math.floor(e_daysold);
+
+				span_dt_dt.innerHTML = daysold + "天" ;
+		}
+		show_date_time();
+		</script>
 	</div>
 	<script src="js/d3.js"></script>
 	<script src="js/main.js"></script>
